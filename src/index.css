@@ -71,6 +71,16 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Neural Animation Effects */
+    --pulse-slow: 3s;
+    --glow-duration: 2s;
+    --neural-flow: 4s;
+
+    /* Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(var(--neural-primary) / 0.8), hsl(var(--neural-secondary) / 0.6));
+    --gradient-thought: linear-gradient(45deg, hsl(var(--creativity) / 0.7), hsl(var(--intuition) / 0.5));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg) / 0.9), hsl(var(--glass-bg) / 0.7));
   }
 
   .dark {
@@ -109,18 +119,6 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-    /* Neural Animation Effects */
-    --pulse-slow: 3s;
-    --glow-duration: 2s;
-    --neural-flow: 4s;
-
-    /* Gradients */
-    --gradient-neural: linear-gradient(135deg, hsl(var(--neural-primary) / 0.8), hsl(var(--neural-secondary) / 0.6));
-    --gradient-thought: linear-gradient(45deg, hsl(var(--creativity) / 0.7), hsl(var(--intuition) / 0.5));
-    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg) / 0.9), hsl(var(--glass-bg) / 0.7));
   }
 }
 
