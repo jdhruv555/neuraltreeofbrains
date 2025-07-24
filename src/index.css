@@ -2,41 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Neural Glassmorphism Design System - Mindscape of Geniuses */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Neural Theme Colors */
+    --background: 240 15% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glassmorphism Card System */
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 95%;
+    --card-border: 220 25% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Neural Glow Colors */
+    --primary: 195 100% 50%;
+    --primary-foreground: 240 15% 8%;
+    --primary-glow: 195 100% 70%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 240 15% 8%;
+    --secondary-glow: 280 100% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Accent Neural Colors */
+    --accent: 320 100% 65%;
+    --accent-foreground: 240 15% 8%;
+    --accent-glow: 320 100% 80%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Thought Pattern Colors */
+    --logic: 210 100% 60%;
+    --creativity: 290 100% 65%;
+    --intuition: 320 100% 60%;
+    --analysis: 180 100% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Glass Effects */
+    --glass-bg: 240 15% 15%;
+    --glass-border: 220 25% 30%;
+    --glass-blur: blur(20px);
 
-    --destructive: 0 84.2% 60.2%;
+    /* Neural Network Patterns */
+    --neural-primary: 195 100% 50%;
+    --neural-secondary: 280 100% 70%;
+    --neural-tertiary: 320 100% 65%;
+
+    /* Interactive States */
+    --muted: 240 10% 20%;
+    --muted-foreground: 210 15% 65%;
+    --destructive: 0 85% 55%;
     --destructive-foreground: 210 40% 98%;
+    --border: 220 25% 25%;
+    --input: 240 15% 15%;
+    --ring: 195 100% 50%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,12 +112,127 @@ All colors MUST be HSL.
   }
 }
 
+    /* Neural Animation Effects */
+    --pulse-slow: 3s;
+    --glow-duration: 2s;
+    --neural-flow: 4s;
+
+    /* Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(var(--neural-primary) / 0.8), hsl(var(--neural-secondary) / 0.6));
+    --gradient-thought: linear-gradient(45deg, hsl(var(--creativity) / 0.7), hsl(var(--intuition) / 0.5));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg) / 0.9), hsl(var(--glass-bg) / 0.7));
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(var(--neural-primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--neural-secondary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(var(--neural-tertiary) / 0.05) 0%, transparent 50%),
+      hsl(var(--background));
+  }
+}
+
+@layer components {
+  /* Glassmorphism Base */
+  .glass {
+    @apply backdrop-blur-xl bg-glass-bg/60 border border-glass-border/50 shadow-2xl;
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300 hover:bg-glass-bg/80 hover:border-glass-border/70;
+  }
+
+  /* Neural Glow Effects */
+  .neural-glow {
+    @apply relative;
+  }
+
+  .neural-glow::before {
+    content: '';
+    @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-500;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  .neural-glow:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Thought Pattern Animations */
+  .thought-pulse {
+    animation: thought-pulse var(--pulse-slow) ease-in-out infinite;
+  }
+
+  .neural-flow {
+    animation: neural-flow var(--neural-flow) linear infinite;
+  }
+
+  /* Interactive Brain Regions */
+  .brain-region {
+    @apply transition-all duration-500 cursor-pointer;
+  }
+
+  .brain-region:hover {
+    @apply scale-110;
+    filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.8));
+  }
+
+  .brain-region.active {
+    @apply scale-105;
+    filter: drop-shadow(0 0 30px hsl(var(--primary) / 1));
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes thought-pulse {
+    0%, 100% { 
+      opacity: 0.5; 
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes neural-flow {
+    0% { 
+      background-position: 0% 0%;
+    }
+    100% { 
+      background-position: 100% 100%;
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4);
+    }
+  }
+
+  /* Gradient Text */
+  .text-neural-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-thought-gradient {
+    background: linear-gradient(45deg, hsl(var(--creativity)), hsl(var(--intuition)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
